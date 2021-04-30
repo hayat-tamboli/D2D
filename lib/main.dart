@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:random/auth/auth.dart';
+import 'package:random/view/auth/auth.dart';
 import 'package:random/utils/theme_config.dart';
 
 void main() {
@@ -18,5 +18,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
