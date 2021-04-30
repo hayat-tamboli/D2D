@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/gestures.dart';
 
 import 'package:flutter/material.dart';
+import 'package:random/mainApp.dart';
 import 'package:random/widgets/button.dart';
 
 class Auth extends StatefulWidget {
@@ -51,7 +52,13 @@ class _AuthState extends State<Auth> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
-              child: PrimaryButton(alt: false),
+              child: PrimaryButton(
+                alt: false,
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => MainApp()));
+                },
+              ),
             ),
             Padding(
               padding: const EdgeInsets.all(24.0),
