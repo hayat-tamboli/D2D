@@ -8,7 +8,7 @@ class UserProfile {
   String emailId;
   String type; // to decide if its a company or developer or a designer
   List projects;
-  int rating;
+  double rating;
   bool work;
 
   UserProfile(

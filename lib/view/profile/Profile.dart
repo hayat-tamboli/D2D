@@ -100,7 +100,7 @@ class _ProfileState extends State<Profile> {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: RatingBar.builder(
-                          initialRating: data['rating'],
+                          initialRating: 3,
                           minRating: 1,
                           ignoreGestures: true,
                           direction: Axis.horizontal,
