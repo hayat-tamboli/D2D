@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/gestures.dart';
 
 import 'package:flutter/material.dart';
-import 'package:random/mainApp.dart';
+// import 'package:random/mainApp.dart';
 import 'package:random/view/auth/afterLogin.dart';
 import 'package:random/widgets/button.dart';
 
