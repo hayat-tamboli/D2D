@@ -1,4 +1,8 @@
+import 'dart:async';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:random/Utils/Constants.dart';
 import 'package:random/widgets/projectCard.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -9,6 +13,30 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
   bool _workAvailable = true;
+  StreamSubscription sub;
+  Map data;
+  bool loading = false;
+  final db = FirebaseFirestore.instance;
+  @override
+  void initState() {
+    super.initState();
+    sub = db
+        .collection('users')
+        .doc(Constants.prefs.getString('userId'))
+        .snapshots()
+        .listen((snap) {
+      setState(() {
+        data = snap.data();
+        loading = true;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    sub.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,16 +59,16 @@ class _ProfileState extends State<Profile> {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20.0),
                 child: Image.network(
-                  'https://avatars.githubusercontent.com/u/55529269?v=4',
+                  data['profileImage'],
                 ),
               ),
             ),
             Text(
-              'Hayat Tamboli',
+              data['name'],
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
             ),
             Text(
-              'UI/UX',
+              data['bio'],
               style: TextStyle(fontSize: 15.0, color: Colors.grey),
             ),
             Padding(
