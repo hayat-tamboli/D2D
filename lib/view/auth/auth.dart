@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/gestures.dart';
 
 import 'package:flutter/material.dart';
-import 'package:random/mainApp.dart';
+import 'package:random/Services/auth.dart';
 import 'package:random/view/auth/afterLogin.dart';
 import 'package:random/widgets/button.dart';
 
@@ -76,8 +76,8 @@ class _AuthState extends State<Auth> {
               child: PrimaryButton(
                 alt: false,
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => AfterLogin()));
+                  signInWithGoogle().then((value) => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => AfterLogin())));
                 },
                 text: "Continue with Google",
               ),
