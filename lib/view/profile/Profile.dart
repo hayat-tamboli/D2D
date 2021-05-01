@@ -132,32 +132,41 @@ class _ProfileState extends State<Profile> {
                         child: StreamBuilder(
                             stream: currentFeed,
                             builder: (context, snapshot) {
-                              return GridView.builder(
-                                  itemCount: snapshot.data.documents.length,
-                                  gridDelegate:
-                                      SliverGridDelegateWithMaxCrossAxisExtent(
-                                    maxCrossAxisExtent: 200,
-                                    childAspectRatio: 4 / 2,
-                                    crossAxisSpacing: 20,
-                                    mainAxisSpacing: 20,
-                                  ),
-                                  itemBuilder: (BuildContext ctx, index) {
-                                    Project data = new Project.fromJson(
-                                        snapshot.data.documents[index]);
-                                    return Container(
-                                      clipBehavior: Clip.hardEdge,
-                                      alignment: Alignment.center,
-                                      child: Image(
-                                        // height: 40,
-                                        // width: 80,
-                                        fit: BoxFit.cover,
-                                        image: NetworkImage(data.img),
-                                      ),
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(16)),
-                                    );
-                                  });
+                              return snapshot.hasData
+                                  ? snapshot.data.documents.length > 0
+                                      ? GridView.builder(
+                                          itemCount:
+                                              snapshot.data.documents.length,
+                                          gridDelegate:
+                                              SliverGridDelegateWithMaxCrossAxisExtent(
+                                            maxCrossAxisExtent: 200,
+                                            childAspectRatio: 4 / 2,
+                                            crossAxisSpacing: 20,
+                                            mainAxisSpacing: 20,
+                                          ),
+                                          itemBuilder:
+                                              (BuildContext ctx, index) {
+                                            Project data = new Project.fromJson(
+                                                snapshot.data.documents[index]);
+                                            return Container(
+                                              clipBehavior: Clip.hardEdge,
+                                              alignment: Alignment.center,
+                                              child: Image(
+                                                // height: 40,
+                                                // width: 80,
+                                                fit: BoxFit.cover,
+                                                image: NetworkImage(data.img),
+                                              ),
+                                              decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          16)),
+                                            );
+                                          })
+                                      : Container(
+                                          child: Center(
+                                              child: Text('Nothing available')))
+                                  : Loader();
                             }),
                       ),
                       if (_projectCount != 6)

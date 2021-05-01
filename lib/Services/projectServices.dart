@@ -22,7 +22,7 @@ updateProject(Project p) async {
 
 getCurrentFeed() async {
   return FirebaseFirestore.instance
-      .collection("user")
+      .collection("users")
       .doc(Constants.prefs.getString('userId'))
       .collection('project')
       .snapshots();
