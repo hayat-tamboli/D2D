@@ -33,6 +33,7 @@ class _MainAppState extends State<MainApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView.builder(
+        physics: NeverScrollableScrollPhysics(),
         controller: _pageController,
         itemCount: 3,
         itemBuilder: (context, index) {
