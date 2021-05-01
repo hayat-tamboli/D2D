@@ -8,6 +8,7 @@ class UserProfile {
   String emailId;
   String type; // to decide if its a company or developer or a designer
   List projects;
+  int rating;
 
   UserProfile(
       {this.userId,
@@ -16,7 +17,8 @@ class UserProfile {
       this.emailId,
       this.bio,
       this.type,
-      this.projects});
+      this.projects,
+      this.rating});
 
   UserProfile.loadUser(this.userId, this.name, this.profileImage, this.emailId,
       this.bio, this.type, this.projects);
@@ -46,7 +48,8 @@ class UserProfile {
         'emailId': emailId,
         'bio': bio,
         'type': type,
-        'userSearchParam': setSearchParam(name)
+        'userSearchParam': setSearchParam(name),
+        'rating': 1
       };
 
   factory UserProfile.fromMap(Map data) {
@@ -66,7 +69,8 @@ class UserProfile {
         emailId: data['emailId'],
         bio: data['bio'],
         type: data['type'],
-        projects: data['projects']);
+        projects: data['projects'],
+        rating: data['rating']);
   }
 }
 
