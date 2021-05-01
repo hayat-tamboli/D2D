@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:random/Utils/Constants.dart';
 import 'package:random/mainApp.dart';
-import 'package:random/utils/Constants.dart';
 import 'package:random/view/auth/auth.dart';
 
 class Splash extends StatefulWidget {
@@ -13,9 +13,9 @@ class Splash extends StatefulWidget {
 class _SplashState extends State<Splash> {
   // Timer to change the screen in 2.2 seconds
 
-  // String _userId = Constants.prefs.get('userId');
+  String _userId = Constants.prefs.get('userId');
   // String _firsttime = Constants.prefs.getString('firsttime');
-  String _userId;
+
   // String _firsttime = "no";
   startTimeout() {
     return Timer(Duration(milliseconds: 2200), handleTimeout);
