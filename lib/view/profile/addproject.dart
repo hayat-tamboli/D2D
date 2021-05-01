@@ -36,13 +36,11 @@ class _AddProjectState extends State<AddProject> {
               controller: linkTextEditingController,
               textInputType: TextInputType.name,
               hintText: 'Project Link',
-              maxLength: 36,
             ),
             InputBox(
               controller: imgTextEditingController,
               textInputType: TextInputType.name,
               hintText: 'Image Link',
-              maxLength: 36,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
