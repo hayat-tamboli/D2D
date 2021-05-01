@@ -20,12 +20,11 @@ class _SettingsPageState extends State<SettingsPage> {
         appBar: AppBar(
           backgroundColor: Color(0xffffffff),
           title: Text(
-            'Profile',
+            'Settings',
             style: TextStyle(
               fontSize: 28.0,
               color: Colors.black,
             ),
-            
           ),
         ),
         body: SafeArea(
@@ -34,7 +33,7 @@ class _SettingsPageState extends State<SettingsPage> {
               SwitchListTile(
                 title: Text('Available for work'),
                 value: _workAvailable,
-                activeColor: Colors.blue,
+                activeColor: Theme.of(context).primaryColor,
                 onChanged: (bool value) {
                   setState(() {
                     _workAvailable = value;
