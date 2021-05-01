@@ -6,7 +6,6 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:random/Utils/Constants.dart';
 import 'package:random/view/profile/addproject.dart';
 import 'package:random/widgets/Loader.dart';
-import 'package:random/widgets/projectCard.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class Profile extends StatefulWidget {
