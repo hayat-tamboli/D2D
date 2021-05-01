@@ -45,7 +45,7 @@ ThemeData buildThemeData(BuildContext context) {
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: const BorderRadius.all(Radius.circular(16.0)),
-        borderSide: BorderSide(color: Color(0xff36C9C9), width: 2),
+        borderSide: BorderSide(color: Color(0xff0887FC), width: 2),
       ),
       hintStyle: TextStyle(
         color: Color(0xffA0A3BD),

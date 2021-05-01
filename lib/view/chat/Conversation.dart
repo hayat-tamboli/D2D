@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:intl/intl.dart';
 import 'package:random/Model/Message.dart';
 import 'package:random/Services/chatroomServices.dart';
@@ -113,6 +114,11 @@ class _ConversationState extends State<Conversation> {
     return Scaffold(
       appBar: AppBar(
         leading: BackButton(),
+        // actions: [
+        //   IconButton(
+        //     icon: Icon(Feather.),
+        //   )
+        // ],
         title: GestureDetector(
           onTap: () {},
           child: Row(
@@ -138,7 +144,7 @@ class _ConversationState extends State<Conversation> {
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w500,
-                    color: Colors.white,
+                    color: Colors.black,
                   ),
                 ),
               ),
@@ -150,7 +156,7 @@ class _ConversationState extends State<Conversation> {
         child: Stack(
           children: [
             Padding(
-              padding: const EdgeInsets.only(bottom: 70.0),
+              padding: const EdgeInsets.only(bottom: 80.0),
               child: chatMessages(),
             ),
             SizedBox(
