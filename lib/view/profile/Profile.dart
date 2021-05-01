@@ -1,9 +1,9 @@
 import 'dart:async';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:random/Utils/Constants.dart';
+import 'package:random/view/profile/Settings.dart';
 import 'package:random/view/profile/addproject.dart';
 import 'package:random/widgets/Loader.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -54,6 +54,14 @@ class _ProfileState extends State<Profile> {
             color: Colors.black,
           ),
         ),
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SettingsPage()));
+              },
+              icon: Icon(Feather.settings)),
+        ],
       ),
       body: loading
           ? SafeArea(
@@ -100,25 +108,15 @@ class _ProfileState extends State<Profile> {
                           },
                         ),
                       ),
-                      SwitchListTile(
-                        title: Text('Available for work'),
-                        value: _workAvailable,
-                        activeColor: Colors.blue,
-                        onChanged: (bool value) {
-                          setState(() {
-                            _workAvailable = value;
-                          });
-                        },
-                      ),
                       SizedBox(width: 20.0, height: 20.0),
                       Container(
-                        height: 350,
+                        height: 380,
                         child: GridView.builder(
                             itemCount: _projectCount,
                             gridDelegate:
                                 SliverGridDelegateWithMaxCrossAxisExtent(
                               maxCrossAxisExtent: 200,
-                              childAspectRatio: 4 / 2,
+                              childAspectRatio: 5 / 3,
                               crossAxisSpacing: 20,
                               mainAxisSpacing: 20,
                             ),

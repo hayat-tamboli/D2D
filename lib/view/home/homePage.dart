@@ -75,6 +75,7 @@ class _HomePageState extends State<HomePage> {
                     minRating: 1,
                     direction: Axis.horizontal,
                     allowHalfRating: true,
+                    ignoreGestures: true,
                     itemCount: 5,
                     itemSize: 30,
                     itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
