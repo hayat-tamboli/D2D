@@ -91,6 +91,48 @@ class _HomePageState extends State<HomePage> {
                 Text("3 out of 5"),
               ],
             ),
+            // Container(
+            //   clipBehavior: Clip.hardEdge,
+            //   alignment: Alignment.center,
+            //   child: Image(
+            //     height: 40,
+            //     width: 80,
+            //     fit: BoxFit.cover,
+            //     image: NetworkImage(
+            //         "https://cdn.dribbble.com/users/5732576/screenshots/14105722/media/084e7f222a56cec05d4aca936c889737.png"),
+            //   ),
+            //   decoration:
+            //       BoxDecoration(borderRadius: BorderRadius.circular(16)),
+            // ),
+            Container(
+              height: 200,
+              child: GridView.builder(
+                  itemCount: 4,
+                  gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                    maxCrossAxisExtent: 300,
+                    childAspectRatio: 3 / 2,
+                    crossAxisSpacing: 8,
+                    mainAxisSpacing: 8,
+                  ),
+                  itemBuilder: (BuildContext ctx, index) {
+                    return GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        clipBehavior: Clip.hardEdge,
+                        alignment: Alignment.center,
+                        child: Image(
+                          // height: 40,
+                          // width: 80,
+                          fit: BoxFit.cover,
+                          image: NetworkImage(
+                              "https://cdn.dribbble.com/users/5732576/screenshots/14105722/media/084e7f222a56cec05d4aca936c889737.png"),
+                        ),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(16)),
+                      ),
+                    );
+                  }),
+            ),
           ],
         ),
       ),
