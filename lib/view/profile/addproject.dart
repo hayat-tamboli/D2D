@@ -50,9 +50,9 @@ class _AddProjectState extends State<AddProject> {
                 alt: false,
                 onTap: () async {
                   Project p = Project.newProject(
-                      nameTextEditingController.toString(),
-                      linkTextEditingController.toString(),
-                      imgTextEditingController.toString());
+                      nameTextEditingController.text.toString(),
+                      linkTextEditingController.text.toString(),
+                      imgTextEditingController.text.toString());
                   await addProject(p);
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => MainApp()));
