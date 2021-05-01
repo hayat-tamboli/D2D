@@ -18,7 +18,7 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Chat"),
+        title: Text("Chat", style: TextStyle(color: Colors.black)),
         automaticallyImplyLeading: false,
         actions: [
           IconButton(

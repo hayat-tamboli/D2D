@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:random/Utils/Constants.dart';
-import 'package:random/view/auth/auth.dart';
 import 'package:random/utils/theme_config.dart';
 import 'package:random/view/SplashScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
