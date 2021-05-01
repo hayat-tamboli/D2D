@@ -4,6 +4,7 @@ import 'package:flutter/gestures.dart';
 
 import 'package:flutter/material.dart';
 import 'package:random/mainApp.dart';
+import 'package:random/view/auth/afterLogin.dart';
 import 'package:random/widgets/button.dart';
 
 class Auth extends StatefulWidget {
@@ -76,7 +77,7 @@ class _AuthState extends State<Auth> {
                 alt: false,
                 onTap: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => MainApp()));
+                      MaterialPageRoute(builder: (context) => afterLogin()));
                 },
                 text: "Continue with Google",
               ),
