@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:random/mainApp.dart';
 import 'package:random/widgets/button.dart';
 
-class afterLogin extends StatefulWidget {
+class AfterLogin extends StatefulWidget {
   @override
-  _afterLoginState createState() => _afterLoginState();
+  _AfterLoginState createState() => _AfterLoginState();
 }
 
-class _afterLoginState extends State<afterLogin> {
+class _AfterLoginState extends State<AfterLogin> {
   bool _designer = true;
   bool _developer = false;
   bool _manager = false;

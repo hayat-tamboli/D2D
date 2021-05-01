@@ -77,7 +77,7 @@ class _AuthState extends State<Auth> {
                 alt: false,
                 onTap: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => afterLogin()));
+                      MaterialPageRoute(builder: (context) => AfterLogin()));
                 },
                 text: "Continue with Google",
               ),

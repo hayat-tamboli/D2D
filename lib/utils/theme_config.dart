@@ -12,8 +12,8 @@ ThemeData buildThemeData(BuildContext context) {
       caption: TextStyle(fontSize: 14),
     ),
     primaryColor: Color(0xff0887FC),
-    primaryColorLight: Color(0xffC2D0E2),
-    accentColor: Color(0xffffcb00),
+    primaryColorLight: Color(0xffC7E4FE),
+    accentColor: Color(0xff98E6C6),
     brightness: Brightness.light,
     fontFamily: 'Proxima Nova',
     colorScheme: ColorScheme(
@@ -28,12 +28,9 @@ ThemeData buildThemeData(BuildContext context) {
       brightness: Brightness.light,
       primary: Color(0xff0887FC),
       primaryVariant: Color(0xff4A74A8),
-      secondary: Color(0xff36C9C9),
-      secondaryVariant: Color(0xff68D7D7),
+      secondary: Color(0xff66D9AB),
+      secondaryVariant: Color(0xffDCF6EC),
     ),
-    // textTheme: GoogleFonts.firaSansTextTheme(
-    //   Theme.of(context).textTheme,
-    // ),
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: Colors.white,
@@ -91,7 +88,7 @@ ThemeData buildThemeData(BuildContext context) {
     ),
     hoverColor: Color(0xffEFF0F6),
     cardColor: Colors.white,
-    errorColor: Color(0xffff1f1f),
+    errorColor: Color(0xffE85B81),
     dividerColor: Color(0xffd6d8e6),
     visualDensity: VisualDensity.adaptivePlatformDensity,
   );
