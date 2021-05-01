@@ -6,12 +6,20 @@ class UserProfile {
   String profileImage;
   String bio;
   String emailId;
+  String type; // to decide if its a company or developer or a designer
+  List projects;
 
   UserProfile(
-      {this.userId, this.name, this.profileImage, this.emailId, this.bio});
+      {this.userId,
+      this.name,
+      this.profileImage,
+      this.emailId,
+      this.bio,
+      this.type,
+      this.projects});
 
-  UserProfile.loadUser(
-      this.userId, this.name, this.profileImage, this.emailId, this.bio);
+  UserProfile.loadUser(this.userId, this.name, this.profileImage, this.emailId,
+      this.bio, this.type, this.projects);
 
   UserProfile.newuser(userId, name, profileImage, emailId) {
     this.userId = userId;
@@ -19,6 +27,7 @@ class UserProfile {
     this.profileImage = profileImage;
     this.emailId = emailId;
     this.bio = 'Hey I am new to D2D';
+    this.type = "";
   }
 
   UserProfile.miniView(String userId, String name, String profileImage) {
@@ -36,6 +45,7 @@ class UserProfile {
         'profileImage': profileImage,
         'emailId': emailId,
         'bio': bio,
+        'type': type,
       };
 
   factory UserProfile.fromMap(Map data) {
@@ -53,6 +63,8 @@ class UserProfile {
         name: data['name'],
         profileImage: data['profileImage'],
         emailId: data['emailId'],
-        bio: data['bio']);
+        bio: data['bio'],
+        type: data['type'],
+        projects: data['projects']);
   }
 }
