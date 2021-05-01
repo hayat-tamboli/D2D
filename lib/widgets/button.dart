@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class PrimaryButton extends StatelessWidget {
   const PrimaryButton({
     this.text = "primary",
-    this.color = const Color(0xff1b63bb),
+    this.color = const Color(0xff0887FC),
     this.onTap,
     this.padding = 60,
     @required this.alt,
@@ -44,9 +44,10 @@ class PrimaryButton extends StatelessWidget {
               text,
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: alt ? Theme.of(context).primaryColor: Colors.white,
+                color: alt ? Theme.of(context).primaryColor : Colors.white,
                 fontSize: 16,
                 letterSpacing: 0.32,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ],
