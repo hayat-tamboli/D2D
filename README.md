@@ -1,5 +1,6 @@
-# Welcome to D2D!👋
-## Connect matters
+# Welcome to D2D!👋 
+## Connect matters🤝
+
 A new Flutter project which helps designers and developers find each other and connect according to suitable profiles.
 
 ## Getting Started
@@ -31,11 +32,17 @@ D2D connects them according to what they find suitable by swiping profiles!
 
 ## Functionalities
 Connection can be done between
+
 👉 Designer to Designer
+
 👉 Developer to Developer
+
 👉 Designer to Developer
+
 👉 Developer to Designer
+
 👉 Company to Developer
+
 👉 Company to Designer
 
 ## 👨‍💻  Tech Stack used 👩‍💻
@@ -54,6 +61,9 @@ Connection can be done between
 ### Prototype
 Figma link:
 https://www.figma.com/file/zege1jhFrr6NoMeKlAmVzv/D2D-UI?node-id=3%3A2
+
+Pitch deck:
+https://docs.google.com/presentation/d/1LsIdYwiCbSAAG20xFucRtn8IPrCt767wjRtPxWxKG7Q/edit#slide=id.ga3b7e49681_0_537
 
 ### Future aspects
 
@@ -76,3 +86,10 @@ Who doesn’t need a dark mode?
 
 ## 👧 Contributors 👦
 
+Manas Gupta : https://github.com/Manas1820
+
+Hayat Tamboli : https://github.com/hayat-tamboli
+
+Margi Bhatt : https://github.com/Margi16
+
+Gunjan Raj Tiwari : https://github.com/GunjanRajTiwari
