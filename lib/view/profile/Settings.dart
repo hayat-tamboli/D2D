@@ -40,14 +40,11 @@ class _SettingsPageState extends State<SettingsPage> {
                   });
                 },
               ),
-              Text(
-                'Update your skills',
-                style: TextStyle(fontSize: 15.0, color: Colors.grey),
-              ),
               InputBox(
                 controller: talentTextEditingController,
                 textInputType: TextInputType.name,
                 hintText: 'UI/UX',
+                labelText: 'Update your skills',
                 maxLength: 36,
               ),
               PrimaryButton(
