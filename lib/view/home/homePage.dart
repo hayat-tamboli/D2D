@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:tcard/tcard.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -8,6 +9,18 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _value = 1;
+  List<Widget> cards = List.generate(
+    10,
+    (index) => Container(
+      color: Colors.blue,
+      child: Center(
+        child: Text(
+          '$index',
+          style: TextStyle(fontSize: 60, color: Colors.white),
+        ),
+      ),
+    ),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -17,15 +30,7 @@ class _HomePageState extends State<HomePage> {
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Column(
             children: [
-              Text(
-                "Who do you want to match up with?",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 38,
-                  fontFamily: "Proxima Nova",
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
+              TopQuestion(),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 8.0),
                 child: Container(
@@ -56,10 +61,33 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-              )
+              ),
+              // tinder card here
+              TCard(
+                cards: cards,
+              ),
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class TopQuestion extends StatelessWidget {
+  const TopQuestion({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      "Who do you want to match up with?",
+      style: TextStyle(
+        color: Colors.black,
+        fontSize: 38,
+        fontFamily: "Proxima Nova",
+        fontWeight: FontWeight.w700,
       ),
     );
   }
