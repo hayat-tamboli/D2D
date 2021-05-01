@@ -46,6 +46,7 @@ class UserProfile {
         'emailId': emailId,
         'bio': bio,
         'type': type,
+        'userSearchParam': setSearchParam(name)
       };
 
   factory UserProfile.fromMap(Map data) {
@@ -67,4 +68,14 @@ class UserProfile {
         type: data['type'],
         projects: data['projects']);
   }
+}
+
+setSearchParam(String username) {
+  List<String> userSearchList = [];
+  String temp = "";
+  for (int i = 0; i < username.length; i++) {
+    temp = temp + username[i];
+    userSearchList.add(temp);
+  }
+  return userSearchList;
 }
