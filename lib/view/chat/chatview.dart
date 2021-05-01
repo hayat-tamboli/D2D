@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:random/Services/chatroomServices.dart';
 import 'package:random/Utils/Constants.dart';
 import 'package:random/view/chat/Conversation.dart';
+import 'package:random/widgets/Loader.dart';
 
 /*
   Code For Message Page
@@ -139,9 +140,7 @@ class _DirectChatsState extends State<DirectChats> {
             );
           }
         } else {
-          return Container(
-            child: CircularProgressIndicator(),
-          );
+          return Loader();
         }
       },
     );
