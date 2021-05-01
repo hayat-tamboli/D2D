@@ -10,3 +10,12 @@ addProject(Project p) async {
       .doc();
   doc.set(p.toJson());
 }
+
+updateProject(Project p) async {
+  var doc = FirebaseFirestore.instance
+      .collection('users')
+      .doc(Constants.prefs.get('userId'))
+      .collection('project')
+      .doc();
+  doc.update(p.toJson());
+}
