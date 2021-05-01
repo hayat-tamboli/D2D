@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:intl/intl.dart';
 import 'package:random/Model/Message.dart';
 import 'package:random/Services/chatroomServices.dart';
@@ -113,11 +114,24 @@ class _ConversationState extends State<Conversation> {
     return Scaffold(
       appBar: AppBar(
         leading: BackButton(),
-        // actions: [
-        //   IconButton(
-        //     icon: Icon(Feather.),
-        //   )
-        // ],
+        actions: [
+          // IconButton(
+          //   onPressed: () {},
+          //   icon: Icon(Feather.more_vertical),
+          // )
+          PopupMenuButton(
+            itemBuilder: (BuildContext bc) => [
+              PopupMenuItem(child: Text("Rate user"), value: "rate"),
+              PopupMenuItem(child: Text("Block"), value: "block"),
+              PopupMenuItem(child: Text("Report"), value: "report"),
+            ],
+            onSelected: (val) {
+              print(val);
+              //TODO open rating modal
+              if (val == "rate") {}
+            },
+          ),
+        ],
         title: GestureDetector(
           onTap: () {},
           child: Row(
