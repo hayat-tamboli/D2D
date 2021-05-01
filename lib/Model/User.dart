@@ -9,6 +9,7 @@ class UserProfile {
   String type; // to decide if its a company or developer or a designer
   List projects;
   int rating;
+  bool work;
 
   UserProfile(
       {this.userId,
@@ -18,10 +19,11 @@ class UserProfile {
       this.bio,
       this.type,
       this.projects,
-      this.rating});
+      this.rating,
+      this.work});
 
   UserProfile.loadUser(this.userId, this.name, this.profileImage, this.emailId,
-      this.bio, this.type, this.projects);
+      this.bio, this.type, this.projects, this.work);
 
   UserProfile.newuser(userId, name, profileImage, emailId) {
     this.userId = userId;
@@ -30,6 +32,7 @@ class UserProfile {
     this.emailId = emailId;
     this.bio = 'Hey I am new to D2D';
     this.type = "";
+    this.work = true;
   }
 
   UserProfile.miniView(String userId, String name, String profileImage) {
@@ -49,7 +52,8 @@ class UserProfile {
         'bio': bio,
         'type': type,
         'userSearchParam': setSearchParam(name),
-        'rating': 1
+        'rating': 1,
+        'work': work
       };
 
   factory UserProfile.fromMap(Map data) {
