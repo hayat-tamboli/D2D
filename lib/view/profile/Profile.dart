@@ -1,9 +1,11 @@
 import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:random/Model/Project.dart';
+import 'package:random/Services/projectServices.dart';
 import 'package:random/Utils/Constants.dart';
-import 'package:random/view/profile/Settings.dart';
 import 'package:random/view/profile/addproject.dart';
 import 'package:random/widgets/Loader.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -19,6 +21,8 @@ class _ProfileState extends State<Profile> {
   StreamSubscription sub;
   Map data;
   bool loading = false;
+  Stream currentFeed;
+  bool anotherload = false;
   final db = FirebaseFirestore.instance;
   @override
   void initState() {
@@ -31,6 +35,18 @@ class _ProfileState extends State<Profile> {
       setState(() {
         data = snap.data();
         loading = true;
+      });
+    });
+
+    getUserInfo();
+  }
+
+  getUserInfo() async {
+    getCurrentFeed().then((snapshots) {
+      setState(() {
+        currentFeed = snapshots;
+        anotherload = true;
+        print("we got the data for Projects");
       });
     });
   }
@@ -54,14 +70,6 @@ class _ProfileState extends State<Profile> {
             color: Colors.black,
           ),
         ),
-        actions: [
-          IconButton(
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => SettingsPage()));
-              },
-              icon: Icon(Feather.settings)),
-        ],
       ),
       body: loading
           ? SafeArea(
@@ -108,32 +116,57 @@ class _ProfileState extends State<Profile> {
                           },
                         ),
                       ),
+                      SwitchListTile(
+                        title: Text('Available for work'),
+                        value: _workAvailable,
+                        activeColor: Colors.blue,
+                        onChanged: (bool value) {
+                          setState(() {
+                            _workAvailable = value;
+                          });
+                        },
+                      ),
                       SizedBox(width: 20.0, height: 20.0),
                       Container(
-                        height: 380,
-                        child: GridView.builder(
-                            itemCount: _projectCount,
-                            gridDelegate:
-                                SliverGridDelegateWithMaxCrossAxisExtent(
-                              maxCrossAxisExtent: 200,
-                              childAspectRatio: 5 / 3,
-                              crossAxisSpacing: 20,
-                              mainAxisSpacing: 20,
-                            ),
-                            itemBuilder: (BuildContext ctx, index) {
-                              return Container(
-                                clipBehavior: Clip.hardEdge,
-                                alignment: Alignment.center,
-                                child: Image(
-                                  // height: 40,
-                                  // width: 80,
-                                  fit: BoxFit.cover,
-                                  image: NetworkImage(
-                                      "https://cdn.dribbble.com/users/5732576/screenshots/14105722/media/084e7f222a56cec05d4aca936c889737.png"),
-                                ),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(16)),
-                              );
+                        height: 350,
+                        child: StreamBuilder(
+                            stream: currentFeed,
+                            builder: (context, snapshot) {
+                              return snapshot.hasData
+                                  ? snapshot.data.documents.length > 0
+                                      ? GridView.builder(
+                                          itemCount:
+                                              snapshot.data.documents.length,
+                                          gridDelegate:
+                                              SliverGridDelegateWithMaxCrossAxisExtent(
+                                            maxCrossAxisExtent: 200,
+                                            childAspectRatio: 4 / 2,
+                                            crossAxisSpacing: 20,
+                                            mainAxisSpacing: 20,
+                                          ),
+                                          itemBuilder:
+                                              (BuildContext ctx, index) {
+                                            Project data = new Project.fromJson(
+                                                snapshot.data.documents[index]);
+                                            return Container(
+                                              clipBehavior: Clip.hardEdge,
+                                              alignment: Alignment.center,
+                                              child: Image(
+                                                // height: 40,
+                                                // width: 80,
+                                                fit: BoxFit.cover,
+                                                image: NetworkImage(data.img),
+                                              ),
+                                              decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          16)),
+                                            );
+                                          })
+                                      : Container(
+                                          child: Center(
+                                              child: Text('Nothing available')))
+                                  : Loader();
                             }),
                       ),
                       if (_projectCount != 6)

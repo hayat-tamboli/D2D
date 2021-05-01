@@ -19,3 +19,11 @@ updateProject(Project p) async {
       .doc();
   doc.update(p.toJson());
 }
+
+getCurrentFeed() async {
+  return FirebaseFirestore.instance
+      .collection("users")
+      .doc(Constants.prefs.getString('userId'))
+      .collection('project')
+      .snapshots();
+}
