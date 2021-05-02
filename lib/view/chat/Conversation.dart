@@ -1,10 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:intl/intl.dart';
 import 'package:random/Model/Message.dart';
 import 'package:random/Services/chatroomServices.dart';
 import 'package:random/Utils/Constants.dart';
+import 'package:random/widgets/button.dart';
 
 class Conversation extends StatefulWidget {
   final String chatRoomId;
@@ -128,7 +130,53 @@ class _ConversationState extends State<Conversation> {
             onSelected: (val) {
               print(val);
               //TODO open rating modal
-              if (val == "rate") {}
+              if (val == "rate") {
+                showModalBottomSheet(
+                  context: context,
+                  // color is applied to main screen when modal bottom screen is displayed
+                  barrierColor: Colors.black38,
+                  //background color for modal bottom screen
+                  backgroundColor: Colors.white,
+                  //elevates modal bottom screen
+                  elevation: 10,
+                  // gives rounded corner to modal bottom screen
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  builder: (BuildContext context) {
+                    return Container(
+                      height: 200,
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: RatingBar.builder(
+                                initialRating: 1,
+                                minRating: 1,
+                                direction: Axis.horizontal,
+                                allowHalfRating: true,
+                                itemCount: 5,
+                                itemPadding:
+                                    EdgeInsets.symmetric(horizontal: 1.0),
+                                itemBuilder: (context, _) => Icon(
+                                  Icons.star,
+                                  color: Color(0xff66D9AB),
+                                ),
+                                onRatingUpdate: (rating) {
+                                  print(rating);
+                                },
+                              ),
+                            ),
+                            PrimaryButton(alt: false, text: "Rate"),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                );
+              }
             },
           ),
         ],
