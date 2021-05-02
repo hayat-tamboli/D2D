@@ -68,6 +68,9 @@ https://docs.google.com/presentation/d/1LsIdYwiCbSAAG20xFucRtn8IPrCt767wjRtPxWxK
 ## .apk file:
 https://drive.google.com/file/d/1yBd2djD_imwYfTI5_shQJYAEwEJI5mbB/view?usp=sharing
 
+Demo video link:
+https://www.youtube.com/watch?v=QS0P3-wE1Ro
+
 ### Future aspects
 
 - POWER UP
