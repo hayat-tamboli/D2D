@@ -66,13 +66,13 @@ class _SplashState extends State<Splash> {
             //     ),
             //   ),
             // ),
-            // SizedBox(
-            //   height: 170,
-            // ),
+            SizedBox(
+              height: 170,
+            ),
             Text(
               "D2D",
               style: TextStyle(
-                color: Theme.of(context).backgroundColor.withOpacity(0.35),
+                color: Theme.of(context).backgroundColor.withOpacity(0.9),
                 fontSize: 38,
                 fontWeight: FontWeight.w700,
               ),

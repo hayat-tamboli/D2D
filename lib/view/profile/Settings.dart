@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:random/Services/auth.dart';
 import 'package:random/Utils/Constants.dart';
+import 'package:random/view/auth/auth.dart';
 import 'package:random/widgets/inputBox.dart';
 import '../../widgets/button.dart';
 
@@ -59,6 +61,16 @@ class _SettingsPageState extends State<SettingsPage> {
                 text: "Continue",
               ),
               SizedBox(width: 20.0, height: 20.0),
+              PrimaryButton(
+                alt: false,
+                color: Theme.of(context).errorColor,
+                onTap: () {
+                  signOutGoogle();
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Auth()));
+                },
+                text: "Log Out",
+              ),
             ],
           ),
         ));
