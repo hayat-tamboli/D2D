@@ -65,6 +65,9 @@ https://www.figma.com/file/zege1jhFrr6NoMeKlAmVzv/D2D-UI?node-id=3%3A2
 Pitch deck:
 https://docs.google.com/presentation/d/1LsIdYwiCbSAAG20xFucRtn8IPrCt767wjRtPxWxKG7Q/edit#slide=id.ga3b7e49681_0_537
 
+## .apk file:
+https://drive.google.com/file/d/1yBd2djD_imwYfTI5_shQJYAEwEJI5mbB/view?usp=sharing
+
 ### Future aspects
 
 - POWER UP
